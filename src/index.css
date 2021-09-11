@@ -5,9 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f8ceec;
+  background-image: linear-gradient(to right, #f8ceec 0%, #a88beb 70%);
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.login-container {
+  width: 25em;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
 }

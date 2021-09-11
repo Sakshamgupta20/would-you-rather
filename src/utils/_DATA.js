@@ -34,6 +34,12 @@ let users = {
   }
 }
 
+let userAuthentication = {
+  sarahedo: '123456',
+  tylermcginnis: '123456',
+  johndoe: '123456'
+}
+
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
@@ -119,6 +125,21 @@ function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
+export function _authenticateUser ({userName,password}) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      let user = users[userName];
+      if(!user) 
+        rej("User Not Found!")
+      if(userAuthentication[userName] !== password)
+        rej("Incorrect Password!")
+      
+      res({...user})
+    }
+    , 1000)
+  })
+}
+
 export function _getUsers () {
   return new Promise((res, rej) => {
     setTimeout(() => res({...users}), 1000)
@@ -145,6 +166,35 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
       text: optionTwoText,
     }
   }
+}
+
+function formatUser ({ username,name,avatarURL }) {
+  return {
+    id: username,
+    name,
+    avatarURL,
+    answers: {},
+    questions: []
+  }
+}
+
+export function _addUser (user) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      if(users[user.username]) {
+        rej("Username alredy exists");
+      } 
+      else if(user.name.trim() === '') {
+        rej("Invalid Name");
+      }
+      else {
+        let formattedUser = formatUser(user)
+        users[formattedUser.id] = formattedUser;
+        userAuthentication[formattedUser.id] = user.password;
+        res(user)
+      }
+    }, 1000)
+  })
 }
 
 export function _saveQuestion (question) {
