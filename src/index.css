@@ -10,6 +10,10 @@ body {
 
 }
 
+ul {
+  list-style-type: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -21,4 +25,55 @@ code {
   padding: 20px;
   border-radius: 20px;
   margin: 20px;
+}
+
+.w-90 {
+  width: 90% !important;
+  margin: 20px auto;
+}
+
+.pr-15 {
+padding-right: 15vh;
+}
+
+.bg-light-grey {
+  background: lightgrey;
+}
+
+.bg-floralwhite {
+  background: floralwhite;
+}
+
+.question-image-container {
+  border-right: 1px  solid lightgrey;
+}
+
+.option-container {
+  padding: 3vh;
+  margin: 3vh 2vh;
+  position: relative;
+
+}
+
+.bg-lime {
+  background: honeydew
+}
+
+.progress-bar-text {
+  text-align: right;
+  margin-right: 5px;
+}
+
+.answer-chip {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  border-radius: 50%;
+  background: gold;
+  width: 50px;
+  color: white;
+  text-align: center;
+  font-weight: bolder;
+  padding: 6px 5px;
+  font-size: 12px;
 }

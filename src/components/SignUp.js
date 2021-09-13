@@ -6,6 +6,7 @@ import { AiOutlineUserAdd } from 'react-icons/ai';
 import { handleNewUser } from '../actions/users';
 import { FiLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 function validURL(str) {
     var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
@@ -22,7 +23,7 @@ function SignUp(props) {
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [avatarURL, setAvatarUrl] = useState({ value: '', error: false });
-    const { error, dispatch, loading } = props
+    const { error, dispatch, loading,authedUser } = props
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,6 +33,10 @@ function SignUp(props) {
     const handleAvatarUrl = (e) => {
         let url = e.target.value.replaceAll(/\s/g, '');
         setAvatarUrl({ value: url, error: !validURL(url) })
+    }
+    
+    if(authedUser) {
+        return (<Redirect to = '/'></Redirect>)
     }
 
     return (
@@ -65,7 +70,7 @@ function SignUp(props) {
                         <label htmlFor="avararUrl">Avarar Url</label>
                         <div className="input-group">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" id="avararIcon"><div>{avatarURL.value && !avatarURL.error ? <img width={25} src={avatarURL.value} /> : <FiLink />}</div></span>
+                                <span className="input-group-text" id="avararIcon"><div>{avatarURL.value && !avatarURL.error ? <img alt = 'avatar' width={25} src={avatarURL.value} /> : <FiLink />}</div></span>
                             </div>
                             <input value={avatarURL.value} onChange={handleAvatarUrl}
                                 type="text" className={"form-control " + (avatarURL.error ? 'is-invalid' : '')} id="avatarURL" placeholder="Enter avatar url" aria-describedby="avatarIcon" />
@@ -104,8 +109,9 @@ function SignUp(props) {
     );
 }
 
-function mapStateToProps({ error, loadingBar }) {
+function mapStateToProps({ authedUser,error, loadingBar }) {
     return {
+        authedUser,
         error,
         loading: loadingBar.default === 1
     }

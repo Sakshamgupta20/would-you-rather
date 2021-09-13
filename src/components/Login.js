@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 import { handleUserAuthentication } from '../actions/authedUser';
 import { AiOutlineUser } from 'react-icons/ai'
 import { RiLockPasswordLine } from 'react-icons/ri'
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 function Login(props) {
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const { error, dispatch, loading } = props
+    const { error, dispatch, loading,authedUser } = props
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(handleUserAuthentication(userName, password))
+    }
+
+    if(authedUser) {
+        return (<Redirect to = '/'></Redirect>)
     }
     return (
         <div className='d-flex vh-100 align-items-center justify-content-center'>
@@ -56,10 +60,11 @@ function Login(props) {
     );
 }
 
-function mapStateToProps({ error, loadingBar }) {
+function mapStateToProps({ error, loadingBar,authedUser }) {
     return {
         error,
-        loading: loadingBar.default === 1
+        loading: loadingBar.default === 1,
+        authedUser
     }
 }
 

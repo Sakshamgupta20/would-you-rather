@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTM97wIcMXKlwYkzNG1CcMfu5Hs5QssZgpe4Cleohv05Fjbmckqfeovl-QGHB1mCbaZKw&usqp=CAU' ,
+    avatarURL: 'https://assets.webiconspng.com/uploads/2016/12/User-Icon.png' ,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://www.vhv.rs/dpng/d/426-4261485_free-user-avatar-icons-flat-customer-icon-png.png' ,
+    avatarURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/128px-Crystal_Clear_kdm_user_female.svg.png' ,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://w7.pngwing.com/pngs/527/479/png-transparent-customer-service-trade-avatar-miscellaneous-angle-face.png',
+    avatarURL: 'https://www.vhv.rs/dpng/d/426-4261485_free-user-avatar-icons-flat-customer-icon-png.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -249,4 +249,13 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
       res()
     }, 500)
   })
+}
+
+export function formatDisplayQuestion(users,question,authedUser) {
+  const userAnswer =  users[authedUser].answers[question.id];
+  const option = userAnswer ? question[userAnswer] : question['optionOne']
+  return {
+    option,
+    author: users[question.author]
+  }
 }

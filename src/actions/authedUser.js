@@ -1,7 +1,8 @@
-import { showLoading,hideLoading } from 'react-redux-loading'
+import { showLoading, hideLoading } from 'react-redux-loading'
 import { authenticateUser } from "../utils/api"
 import { setError } from "./error"
 import { handleInitialData } from './shared'
+import history from '../components/History'
 
 export const SET_AUTHED_USER = 'SET_AUTHED_USER'
 
@@ -22,7 +23,8 @@ export function handleUserAuthentication(userName, password) {
             password
         })
             .then((authedUser) => {
-                dispatch(handleInitialData(authedUser))
+                dispatch(handleInitialData(authedUser.id))
+                history.push('/')
             })
             .catch((err) => {
                 console.error(err);
