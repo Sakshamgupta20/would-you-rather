@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute';
 import history from './History'
 import Poll from '../components/Poll'
 import NotFound from '../components/NotFound'
+import NewQuestion from './NewQuestion';
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
           <div className="container p-0 w-50">
             <PrivateRoute path='/' exact component={HomePage}></PrivateRoute>
             <PrivateRoute path='/questions/:questionId' exact component={Poll}></PrivateRoute>
+            <PrivateRoute path='/newQuestion' exact component={NewQuestion}></PrivateRoute>
           </div>
         </Fragment>
       </Router>

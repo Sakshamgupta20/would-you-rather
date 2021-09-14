@@ -199,6 +199,9 @@ export function _addUser (user) {
 
 export function _saveQuestion (question) {
   return new Promise((res, rej) => {
+    
+    if(question.optionOneText.trim() === '' || question.optionTwoText.trim() === '')
+      rej("Option cannot be empty!")
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
 

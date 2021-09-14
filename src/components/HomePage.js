@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Question from './Question';
 
 const tabs = ['ANSWERED', 'UNANSWERED']
 function HomePage(props) {
 
-    const { authedUser, answeredQuestionIds, loading, unansweredQuestionIds } = props
+    const { answeredQuestionIds, loading, unansweredQuestionIds } = props
     let questionIds = [];
 
     const [activeTab, setActiveTab] = useState(tabs[0]);
@@ -18,6 +19,7 @@ function HomePage(props) {
     if (loading) return null;
     return (
         <div className = 'border rounded border-dark'>
+            <Link className = 'text-primary text-decoration-none' to='/newQuestion'>New</Link>
             <ul className="nav nav-tabs nav-justified" role="tablist">
                 {tabs.map(tab => (
                     <li key={tab} className="nav-item">
@@ -35,6 +37,7 @@ function HomePage(props) {
                     </li>
                 ))}
             </ul>
+            
         </div>
     );
 }
@@ -42,7 +45,6 @@ function HomePage(props) {
 
 function mapStateToProps({ authedUser, users, loadingBar, questions }) {
     return {
-        authedUser,
         loading: loadingBar.default === 1,
         answeredQuestionIds: Object.keys(questions)
             .filter(question => Object.keys(users[authedUser].answers).includes(question))

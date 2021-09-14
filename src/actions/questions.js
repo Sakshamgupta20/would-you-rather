@@ -1,7 +1,8 @@
 import { hideLoading, showLoading } from "react-redux-loading"
-import { saveQuestionAnswer } from '../utils/api'
+import { saveQuestion, saveQuestionAnswer } from '../utils/api'
 import { setError } from "./error"
-import { addUserResponse } from "./users"
+import { addUserQuestion, addUserResponse } from "./users"
+import history from '../components/History'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
@@ -21,14 +22,37 @@ export function addQuestion(question) {
     }
 }
 
-export function addQuestionAnswer(info) {
+export function addQuestionAnswer(answer) {
     return {
         type: ADD_QUESTION_ANSWER,
-        ...info,
+        answer,
     }
 }
 
-export function handleAddQuestionAnswer(authedUser,qid,answer) {
+export function handleAddQuestion(author, optionOneText, optionTwoText) {
+    return (dispatch) => {
+        dispatch(showLoading())
+        dispatch(setError(null))
+
+        return saveQuestion({
+            author,
+            optionOneText,
+            optionTwoText
+        })
+            .then((response) => {
+                dispatch(addQuestion(response))
+                dispatch(addUserQuestion(response))
+                history.push('/')
+            })
+            .catch((err) => {
+                console.error(err);
+                dispatch(setError(err))
+            })
+            .then(() => dispatch(hideLoading()))
+    }
+}
+
+export function handleAddQuestionAnswer(authedUser, qid, answer) {
     return (dispatch) => {
         dispatch(showLoading())
         dispatch(setError(null))
@@ -41,13 +65,13 @@ export function handleAddQuestionAnswer(authedUser,qid,answer) {
             .then(() => {
                 dispatch(addQuestionAnswer({
                     authedUser,
-                    id:qid,
-                    answer
+                    id: qid,
+                    option:answer
                 }))
                 dispatch(addUserResponse({
-                    id:authedUser,
+                    id: authedUser,
                     qid,
-                    answer
+                    option:answer
                 }))
             })
             .catch((err) => {

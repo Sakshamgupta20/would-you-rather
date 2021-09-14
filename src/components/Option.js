@@ -7,10 +7,10 @@ function Option(props) {
 
     return (
         <div className={"option-container border border-dark rounded " + (selected ? 'bg-lime' : '')}>
-            <strong className={"mb-3 d-block " + (selected ? 'text-success' : 'text-dark')}>{`Would you rathe ${option.text}?`}</strong>
+            <strong className={"mb-3 d-block " + (selected ? 'text-success' : 'text-dark')}>{`Would you rather ${option.text} ?`}</strong>
             <div className = 'text-center'>
                 <div className="progress">
-                    <div className="progress-bar bg-success" style={{width: totalPercent}} role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                    <div className="progress-bar bg-success" style={{width: totalPercent + '%'}} role="progressbar" aria-valuemin="0" aria-valuemax="100">
                         <strong className = 'progress-bar-text'>{totalPercent}%</strong>
                     </div>
                 </div>
