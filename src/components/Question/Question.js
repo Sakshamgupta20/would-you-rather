@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { formatDisplayQuestion } from '../utils/_DATA';
+import { formatDisplayQuestion } from '../../utils/_DATA';
 
 
 function Question(props) {
@@ -13,7 +13,7 @@ function Question(props) {
             </h6>
             <div className='container m-3'>
                 <div className='row'>
-                    <div className='col-md-4 col-sm-12 question-image-container text-center mb-2'>
+                    <div className='col-md-4 col-sm-12 border-right-grey text-center mb-2'>
                         <img className='img-thumbnail rounded-circle w-50' src={author.avatarURL} alt="avatar" />
                     </div>
                     <div className='col-md-8 col-sm-12'>

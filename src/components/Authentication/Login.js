@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { handleUserAuthentication } from '../actions/authedUser';
+import { handleUserAuthentication } from '../../actions/authedUser';
 import { AiOutlineUser } from 'react-icons/ai'
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { Link,Redirect } from 'react-router-dom';

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { AiOutlineUser } from 'react-icons/ai'
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { AiOutlineUserAdd } from 'react-icons/ai';
-import { handleNewUser } from '../actions/users';
+import { handleNewUser } from '../../actions/users';
 import { FiLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Question from './Question';
+import Question from './Question/Question';
 
 const tabs = ['ANSWERED', 'UNANSWERED']
 function HomePage(props) {
@@ -18,8 +17,7 @@ function HomePage(props) {
 
     if (loading) return null;
     return (
-        <div className = 'border rounded border-dark'>
-            <Link className = 'text-primary text-decoration-none' to='/newQuestion'>New</Link>
+        <div className = 'border m-10 rounded border-secondary'>
             <ul className="nav nav-tabs nav-justified" role="tablist">
                 {tabs.map(tab => (
                     <li key={tab} className="nav-item">

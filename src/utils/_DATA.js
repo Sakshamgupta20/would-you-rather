@@ -1,16 +1,4 @@
 let users = {
-  sarahedo: {
-    id: 'sarahedo',
-    name: 'Sarah Edo',
-    avatarURL: 'https://assets.webiconspng.com/uploads/2016/12/User-Icon.png' ,
-    answers: {
-      "8xf0y6ziyjabvozdd253nd": 'optionOne',
-      "6ni6ok3ym7mf1p33lnez": 'optionTwo',
-      "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-      "loxhs1bqm25b708cmbf3g": 'optionTwo'
-    },
-    questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
-  },
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
@@ -31,13 +19,32 @@ let users = {
       "6ni6ok3ym7mf1p33lnez": 'optionTwo'
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+  },sarahedo: {
+    id: 'sarahedo',
+    name: 'Sarah Edo',
+    avatarURL: 'https://assets.webiconspng.com/uploads/2016/12/User-Icon.png' ,
+    answers: {
+      "8xf0y6ziyjabvozdd253nd": 'optionOne',
+      "6ni6ok3ym7mf1p33lnez": 'optionTwo',
+      "am8ehyc8byjqgar0jgpub9": 'optionTwo',
+      "loxhs1bqm25b708cmbf3g": 'optionTwo'
+    },
+    questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
+  },shoyo: {
+    id: 'shoyo',
+    name: 'Shoyo Hinata',
+    avatarURL: 'https://www.vhv.rs/dpng/d/426-4261485_free-user-avatar-icons-flat-customer-icon-png.png' ,
+    answers: {
+    },
+    questions: []
   }
 }
 
 let userAuthentication = {
   sarahedo: '123456',
   tylermcginnis: '123456',
-  johndoe: '123456'
+  johndoe: '123456',
+  shoyo: '123456'
 }
 
 let questions = {

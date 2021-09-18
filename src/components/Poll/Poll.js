@@ -20,10 +20,10 @@ function Poll(props) {
             </h5>
             <div className='container m-3'>
                 <div className='row'>
-                    <div className='col-md-4 question-image-container text-center'>
+                    <div className='col-md-5 border-right-grey text-center'>
                         <img className='img-thumbnail rounded-circle w-50' src={author.avatarURL} alt="avatar" />
                     </div>
-                    <div className='col-md-8'>
+                    <div className='col-md-7'>
                         {selectedOption == null 
                             ? <PollSubmit id = {question.id}></PollSubmit> 
                             : <PollResponse id = {question.id}></PollResponse>}

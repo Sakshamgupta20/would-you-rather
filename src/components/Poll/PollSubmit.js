@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { handleAddQuestionAnswer } from '../actions/questions';
+import { handleAddQuestionAnswer } from '../../actions/questions'
 
 function PollSubmit(props) {
 

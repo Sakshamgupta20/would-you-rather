@@ -44,7 +44,11 @@ padding-right: 15vh;
   background: floralwhite;
 }
 
-.question-image-container {
+.border-floralwhite {
+  border:1px solid  floralwhite;
+}
+
+.border-right-grey {
   border-right: 1px  solid lightgrey;
 }
 
@@ -76,4 +80,69 @@ padding-right: 15vh;
   font-weight: bolder;
   padding: 6px 5px;
   font-size: 12px;
+}
+
+.float-right {
+  float: right;
+}
+
+.h-10 {
+  height: 10%;
+}
+
+
+.user-score{
+  color: white;
+  background: green;
+  border-radius: 50%;
+  font-weight: 600;
+  margin: 25px auto;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: 2px solid green;
+  text-align: center;
+}
+
+.user-rank {
+  border-bottom: 40px solid transparent;
+  border-left: 40px solid rgb(217, 233, 180);
+  border-right: 40px solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+
+.user-rank span {
+  position: absolute;
+  left: -34px;
+  font-size: 14px;
+}
+
+.quesion-nav-item {
+  margin-bottom: 1px;
+  padding: 0.5em 1em !important;
+}
+
+.center-item {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin: 0  1em 0 3em;
+}
+
+.user-name img {
+  width: 27px;
+  margin: 0 1em;
+}
+
+@media screen and (max-width: 574px) {
+  .img-user {
+    max-width: 50% !important;
+  }
 }

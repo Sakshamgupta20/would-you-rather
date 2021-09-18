@@ -1,14 +1,15 @@
-import {  ADD_USER_QUESTION, ADD_USER_RESPONSE, RECEIVE_USERS } from "../actions/users";
+import { RESET_STATE } from "../actions/shared";
+import { ADD_USER_QUESTION, ADD_USER_RESPONSE, RECEIVE_USERS } from "../actions/users";
 
-export default function users(state = [],action) {
-    switch(action.type) {
+export default function users(state = {}, action) {
+    switch (action.type) {
         case RECEIVE_USERS:
             return {
                 ...state,
                 ...action.users
             }
         case ADD_USER_RESPONSE:
-            const {answer}  = action
+            const { answer } = action
             return {
                 ...state,
                 [answer.id]: {
@@ -17,11 +18,11 @@ export default function users(state = [],action) {
                         ...state[answer.id].answers,
                         [answer.qid]: answer.option
                     }
-                    
+
                 }
             }
-        case ADD_USER_QUESTION: 
-            const {question}  = action
+        case ADD_USER_QUESTION:
+            const { question } = action
             return {
                 ...state,
                 [question.author]: {
@@ -29,6 +30,8 @@ export default function users(state = [],action) {
                     questions: state[question.author].questions.concat(question)
                 }
             }
+        case RESET_STATE:
+            return {}
         default:
             return state
     }
