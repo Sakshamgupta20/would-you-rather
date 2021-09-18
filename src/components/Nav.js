@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { resetState } from '../actions/shared'
 const navItems = [{ name: 'Home Page', location: '/' },
-{ name: 'New Question', location: '/newQuestion' },
+{ name: 'New Question', location: '/add' },
 { name: 'LeaderBoard', location: '/leaderboard' }]
 
 function Nav(props) {

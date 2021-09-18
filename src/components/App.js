@@ -30,7 +30,7 @@ class App extends Component {
               <div className='col-lg-6 col-md-12'>
                 <PrivateRoute path='/' exact component={HomePage}></PrivateRoute>
                 <PrivateRoute path='/questions/:questionId' exact component={Poll}></PrivateRoute>
-                <PrivateRoute path='/newQuestion' exact component={NewQuestion}></PrivateRoute>
+                <PrivateRoute path='/add' exact component={NewQuestion}></PrivateRoute>
                 <PrivateRoute path='/leaderboard' exact component={Leadeboard}></PrivateRoute>
               </div>
               <div className='col-lg-3 col-md-0'></div>
