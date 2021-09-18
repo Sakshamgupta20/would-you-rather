@@ -1,57 +1,36 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This project lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+In this app, users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+Example Users:
 
-## Data
+username      | passowrd
+------------- | -------------
+tylermcginnis | 123456
+johndoe       | 123456
+sarahedo      | 123456
+shoyo         | 123456
 
-There are two types of objects stored in our database:
+You can also create new users via sign up page.
 
-* Users
-* Questions
+# To get started developing right away
 
-### Users
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
 
-Users include:
 
-| Attribute    | Type             | Description           |
-|-----------------|------------------|-------------------         |
-| id                 | String           | The user’s unique identifier |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
-| questions | Array | A list of ids of the polling questions this user created|
-| answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
+## Backend Server
 
-### Questions
-
-Questions include:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id                  | String | The question’s unique identifier |
-| author        | String | The author’s unique identifier |
-| timestamp | String | The time when the question was created|
-| optionOne | Object | The first voting option|
-| optionTwo | Object | The second voting option|
-
-### Voting Options
-
-Voting options are attached to questions. They include:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| votes             | Array | A list that contains the id of each user who voted for that option|
-| text                | String | The text of the option |
-
-Your code will talk to the database via 4 methods:
+ Apis will talk to the fake database via 4 methods:
 
 * `_getUsers()`
 * `_getQuestions()`
 * `_saveQuestion(question)`
 * `_saveQuestionAnswer(object)`
+* `_addUser()`
+* `_authenticateUser`
 
 1) `_getUsers()` Method
 
@@ -95,6 +74,24 @@ Your code will talk to the database via 4 methods:
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
 
-## Contributing
+5) `_addUser` Method
 
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+*Description*: Add new user in database.
+*Parameters*: Object that contains the following properties: `username`, `name`, `password`, and `avatarURL`. More details about these properties:
+
+| Attribute | Type | Description |
+|-----------------|------------------|-------------------|
+| username | String | The id of the user |
+| name | String | The name of the user|
+| passoword| String | Password of the user, currentry no encryption is there |
+| avatarURL| String | User profile picture |
+
+5) `_authenticateUser` Method
+
+*Description*: Add authenticate user from database.
+*Parameters*: Object that contains the following properties: `username`, `password`. More details about these properties:
+
+| Attribute | Type | Description |
+|-----------------|------------------|-------------------|
+| username | String | The id of the user |
+| passoword | String | Password of the user, currentry no encryption is there |
