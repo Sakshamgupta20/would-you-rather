@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Question from './Question/Question';
 
-const tabs = ['ANSWERED', 'UNANSWERED']
+const tabs = ['UNANSWERED','ANSWERED']
 function HomePage(props) {
 
     const { answeredQuestionIds, loading, unansweredQuestionIds } = props
@@ -11,9 +11,9 @@ function HomePage(props) {
     const [activeTab, setActiveTab] = useState(tabs[0]);
 
     if (activeTab === tabs[0])
-        questionIds = answeredQuestionIds;
-    else
         questionIds = unansweredQuestionIds;
+    else
+        questionIds = answeredQuestionIds;
 
     if (loading) return null;
     return (

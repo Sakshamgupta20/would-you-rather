@@ -5,27 +5,11 @@ import history from '../components/History'
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 export const CREATE_NEW_USER = 'CREATE_NEW_USER'
-export const ADD_USER_RESPONSE = 'ADD_USER_RESPONSE'
-export const ADD_USER_QUESTION = 'ADD_USER_QUESTION'
 
 export function receiveUsers(users) {
     return {
         type: RECEIVE_USERS,
         users,
-    }
-}
-
-export function addUserResponse(answer) {
-    return {
-        type: ADD_USER_RESPONSE,
-        answer,
-    }
-}
-
-export function addUserQuestion(question) {
-    return {
-        type: ADD_USER_QUESTION,
-        question,
     }
 }
 

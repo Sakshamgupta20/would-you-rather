@@ -12,11 +12,11 @@ export default function questions(state = {}, action) {
             const { answer } = action
             return {
                 ...state,
-                [answer.id]: {
-                    ...state[answer.id],
+                [answer.qid]: {
+                    ...state[answer.qid],
                     [answer.option]: {
-                        ...state[answer.id][answer.option],
-                        votes: state[answer.id][answer.option].votes.concat([answer.authedUser])
+                        ...state[answer.qid][answer.option],
+                        votes: state[answer.qid][answer.option].votes.concat([answer.authedUser])
                     }
                 }
             }

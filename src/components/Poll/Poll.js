@@ -44,7 +44,7 @@ function mapStateToProps({ authedUser, users, questions }, props) {
             authedUser,
             selectedOption: users[authedUser].answers[questionId]
         }
-        : null
+        : { question: null }
 }
 
 

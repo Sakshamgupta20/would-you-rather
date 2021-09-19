@@ -95,3 +95,6 @@ You can also create new users via sign up page.
 |-----------------|------------------|-------------------|
 | username | String | The id of the user |
 | passoword | String | Password of the user, currentry no encryption is there |
+
+## Authors
+- [Saksham Gupta](https://github.com/Sakshamgupta20)

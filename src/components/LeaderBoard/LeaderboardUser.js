@@ -14,9 +14,9 @@ function LeaderboardUser(props) {
 
                 <div className='col-md-6 col-sm-8 border-right-grey'>
                     <h4 className='text-center'>{user.name}</h4>
-                    <p className='mt-3'>Answered Questions <span className='float-right'> {user.questions.length} </span></p>
+                    <p className='mt-3'>Answered Questions <span className='float-right'> {Object.keys(user.answers).length} </span></p>
                     <hr />
-                    <p>Created Questions <span className='float-right'> {Object.keys(user.answers).length} </span></p>
+                    <p>Created Questions <span className='float-right'> {user.questions.length} </span></p>
                 </div>
 
                 <div className='col-md-3 col-sm-12'>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { handleUserAuthentication } from '../../actions/authedUser';
 import { AiOutlineUser } from 'react-icons/ai'
 import { RiLockPasswordLine } from 'react-icons/ri'
-import { Link,Redirect } from 'react-router-dom';
+import { Link,Redirect,useLocation} from 'react-router-dom';
 function Login(props) {
 
     const [userName, setUserName] = useState('');
@@ -15,8 +15,10 @@ function Login(props) {
         dispatch(handleUserAuthentication(userName, password))
     }
 
-    if(authedUser) {
-        return (<Redirect to = '/'></Redirect>)
+    const { state } = useLocation()
+
+    if(authedUser && !loading) {
+        return <Redirect to={state?.from || '/'} />
     }
     return (
         <div className='d-flex vh-100 align-items-center justify-content-center'>

@@ -22,7 +22,6 @@ class App extends Component {
           <LoadingBar />
           <Route path='/login' exact component={Login}></Route>
           <Route path='/signUp' exact component={SignUp}></Route>
-          <PrivateRoute path='/notFound' exact component={NotFound}></PrivateRoute>
           <Nav></Nav>
           <div className="container p-0">
             <div className="row">
@@ -36,6 +35,7 @@ class App extends Component {
               <div className='col-lg-3 col-md-0'></div>
             </div>
           </div>
+          <PrivateRoute path='/notFound' exact component={NotFound}></PrivateRoute>
         </Fragment>
       </Router>
 

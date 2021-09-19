@@ -1,7 +1,6 @@
 import { hideLoading, showLoading } from "react-redux-loading"
 import { saveQuestion, saveQuestionAnswer } from '../utils/api'
 import { setError } from "./error"
-import { addUserQuestion, addUserResponse } from "./users"
 import history from '../components/History'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -41,7 +40,6 @@ export function handleAddQuestion(author, optionOneText, optionTwoText) {
         })
             .then((response) => {
                 dispatch(addQuestion(response))
-                dispatch(addUserQuestion(response))
                 history.push('/')
             })
             .catch((err) => {
@@ -65,11 +63,6 @@ export function handleAddQuestionAnswer(authedUser, qid, answer) {
             .then(() => {
                 dispatch(addQuestionAnswer({
                     authedUser,
-                    id: qid,
-                    option:answer
-                }))
-                dispatch(addUserResponse({
-                    id: authedUser,
                     qid,
                     option:answer
                 }))
